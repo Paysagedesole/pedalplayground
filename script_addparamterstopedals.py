@@ -1,14 +1,13 @@
 from json import load,dump
 import webbrowser
-import keyboard
-
+from script_testMistralAi import FindPedalTypeAndPrice
 
         
 
 def openInExplorer(Brand, Name):
     print(f"{Brand}  {Name}")
 googleSearchLink = "https://www.google.com/search?q="
-with open("D:/PedalPlayground/pedalplayground/public/data/newPedals.json") as f:
+with open("C:/Users/avegh/Documents/GitHub/pedalplayground/public/data/newPedals.json") as f:
     data = load(f)
  
 index = 0;
@@ -17,12 +16,14 @@ newData = data
 for pedal in newData:
     Brand = pedal["Brand"]
     Model = pedal["Name"]
-    #pedal["PARAETER"] = "" 
-    pedal["Instrument"] = "Any" 
-    print(f"{Brand},{Model}")
+    #pedal["PARAMETER"] = "" 
+    pedalInfos = FindPedalTypeAndPrice(f"{Brand} {Model}")
+    pedal["Type"] = pedalInfos[0]
+    pedal["Price"] = pedalInfos [1]
+    print(f"{Brand},{Model},type : {pedalInfos[0]}; price : {pedalInfos [1]}")
     newData[index-1]=pedal
     index = index + 1
 
-newFile = open("D:/PedalPlayground/pedalplayground/public/data/newPedals.json","w")
-#dump(newData,newFile,indent=4)
+newFile = open("C:/Users/avegh/Documents/GitHub/pedalplayground/public/data/newPedals.json","w")
+dump(newData,newFile,indent=4)
 newFile.close()
