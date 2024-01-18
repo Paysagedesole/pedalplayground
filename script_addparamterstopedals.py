@@ -22,8 +22,7 @@ for pedal in newData:
     pedal["Price"] = pedalInfos [1]
     print(f"{Brand},{Model},type : {pedalInfos[0]}; price : {pedalInfos [1]}")
     newData[index-1]=pedal
-    index = index + 1
-
-newFile = open("C:/Users/avegh/Documents/GitHub/pedalplayground/public/data/newPedals.json","w")
-dump(newData,newFile,indent=4)
-newFile.close()
+    
+    newFile = open("C:/Users/avegh/Documents/GitHub/pedalplayground/public/data/newPedals.json","w")
+    dump(newData,newFile,indent=4)
+    newFile.close()
