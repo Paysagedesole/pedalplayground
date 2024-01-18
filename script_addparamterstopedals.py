@@ -7,7 +7,7 @@ from script_testMistralAi import FindPedalTypeAndPrice
 def openInExplorer(Brand, Name):
     print(f"{Brand}  {Name}")
 googleSearchLink = "https://www.google.com/search?q="
-with open("C:/Users/avegh/Documents/GitHub/pedalplayground/public/data/newPedals.json") as f:
+with open("C:/Users/avegh/Documents/GitHub/pedalplayground/public/data/pedals.json") as f:
     data = load(f)
  
 index = 0;
