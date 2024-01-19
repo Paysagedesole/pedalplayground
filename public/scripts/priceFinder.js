@@ -1,12 +1,13 @@
-let request = new XMLHttpRequest();
-request.open("GET", "https://reverb.com/p/jhs-morning-glory-v4", true);
-request.onload = () => {
-  const doc = new DOMParser().parseFromString(request.responseText, 'text/html');
-  document.querySelector('#content').innerHTML = doc.getElementsByClassName('price-display')[0].innerHTML;
-}
-window.onload = function(){
-    var name = prompt("What's your name?");
-    var lengthOfName = name.length
-
-    document.getElementById('testVariable').innerHTML = lengthOfName;}
-request.send();
+window.onload = function()
+			{
+                let request = new XMLHttpRequest();
+                request.open("GET", "https://reverb.com/p/epiphone-firebird-2020-present", true);
+                request.onload = () => 
+                {
+                    
+                    const doc = new DOMParser().parseFromString(request.responseText, 'text/html');
+                    document.getElementById('testVariable').innerHTML = doc.getElementsByClassName('price-display')[0].innerHTML;
+                }
+          
+                request.send();
+            }
